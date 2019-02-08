@@ -1,62 +1,54 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Kurssi from './components/Kurssi';
+import Sum from './components/Sum';
 
-const Otsikko = (props) => {
-  return (
-    <div>
-      <h1>{props.kurssi.nimi}</h1>
-    </div>
-  )
-}
-
-const Sisalto = (props) => {
-  return (
-    <div>
-      <Osa nimi={props.kurssi} tehtava={props.kurssi}/>
-      <Osa nimi={props.kurssi} tehtava={props.kurssi}/>
-      <Osa nimi={props.kurssi} tehtava={props.kurssi}/>
-    </div>
-  )
-}
-
-const Yhteensa = (props) => {
-  return (
-    <div>
-      <p>Tehtaviä: {props.kurssi}.</p>
-    </div>
-  )
-}
-
-const Osa = (props) => {
-  return (
-    <div>
-      <p>Kurssi: {props.kurssi}, tehtäviä: {props.kurssi}</p>
-    </div>
-  )
-}
-
-const App = () => {
-  const kurssi = 'Half Stack -sovelluskehitys'
-  const osat = [ 
+const App = () => { 
+  const kurssi = [
+  {    
+    nimi: 'Half Stack -sovelluskehitys',
+    osat: [ 
   {
     nimi: 'Reactin perusteet',
-    tehtavia: 10
+    tehtavia: 10,
+    id: 1
   },
   {
     nimi: 'Tiedonvälitys propseilla',
-    tehtavia: 7
+    tehtavia: 7,
+    id: 2
   },
   { 
     nimi: 'Komponenttien tila',
-    tehtavia: 14
-  }
+    tehtavia: 14,
+    id:3
+    }
+  ]
+},
+{
+  nimi: 'Node.js',
+  id: 2,
+  osat: [
+    {
+      nimi: 'Routing',
+      tehtavia: 3,
+      id: 1
+    },
+    {
+      nimi: 'Middlewaret',
+      tehtavia: 7,
+      id: 2
+    }
+  ]
+}
 ]
 
   return (
     <div>
-      <Otsikko kurssi={kurssi}/>
-      <Sisalto kurssi={kurssi}/>
-      <Yhteensa kurssi={kurssi}/>
+      <Kurssi kurssi={kurssi[0]}/>
+      <Sum kurssi={kurssi[0]}/>
+      <Kurssi kurssi={kurssi[1]}/>
+      <Sum kurssi={kurssi[1]}/>
     </div>
   )
 }
